@@ -19,7 +19,14 @@ const port = 3000;
 app.use(express.json());
 
 const corsOptions = {
-    origin: "https://smit-hackathon-oct-f400f.containers.snapdeploy.app",
+    origin: [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://smit-hackathon-oct-26-frontend.vercel.app",
+        "https://smit-hackathon-oct-f400f.containers.snapdeploy.app"
+    ],
+    credentials: true,
+
     methods: "GET, POST, PUT, DELETE",
 }
 
@@ -30,11 +37,11 @@ app.get("/", (req, res) => {
 })
 
 // app.use("/users", router);
-app.use ("/", authrouter);
+app.use("/", authrouter);
 app.use("/", express.static("src/Public"));
 
 
-mongoose.connect(process.env.MONGOO_DB).then(() =>{
+mongoose.connect(process.env.MONGOO_DB).then(() => {
     console.log("MongoDB connected");
 
 }).catch((err) => {

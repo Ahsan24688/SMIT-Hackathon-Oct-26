@@ -69,7 +69,7 @@ const Register = () => {
                                     id="fname"
                                     type="text"
                                     autoComplete="given-name"
-                                    placeholder="Jane"
+                                    placeholder="First name"
                                     aria-invalid={Boolean(errors.fname)}
                                     className={inputClassName}
                                     {...register('fname', {
@@ -86,7 +86,7 @@ const Register = () => {
                                     id="lname"
                                     type="text"
                                     autoComplete="family-name"
-                                    placeholder="Smith"
+                                    placeholder="Last Name"
                                     aria-invalid={Boolean(errors.lname)}
                                     className={inputClassName}
                                     {...register('lname', {

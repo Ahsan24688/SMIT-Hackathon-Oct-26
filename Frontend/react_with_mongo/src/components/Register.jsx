@@ -135,6 +135,19 @@ const Register = () => {
                                 ? <p className="mt-1.5 text-xs text-rose-600">{errors.password.message}</p>
                                 : <p className="mt-1.5 text-xs text-slate-400">Use 8–15 characters.</p>}
                         </div>
+                        <div>
+                            <label htmlFor="role" className="mb-2 block text-sm font-medium text-slate-700">Account Role</label>
+                            <select
+                                id="role"
+                                className={inputClassName}
+                                {...register('role', { required: 'Select a role.' })}
+                            >
+                                <option value="Employee">Employee</option>
+                                <option value="HR">HR</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                            {errors.role && <p className="mt-1.5 text-xs text-rose-600">{errors.role.message}</p>}
+                        </div>
 
                         <button
                             type="submit"

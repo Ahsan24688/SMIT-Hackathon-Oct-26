@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router'
 import Register from './components/Register.jsx'
 import Login from './components/Login.jsx'
 import Dashboard from './components/Dashboard.jsx'
+import AdminSetting from './components/adminsetting.jsx'
 
 function App() {
 
@@ -22,10 +23,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={Isauthorizte ? <Navigate to="/dashboard" /> : <Register /> } />
+        <Route path='/' element={Isauthorizte ? <Navigate to="/dashboard" /> : <Register />} />
         <Route path='/register' element={Isauthorizte ? <Navigate to="/dashboard" /> : <Register />} />
         <Route path='/login' element={Isauthorizte ? <Navigate to="/dashboard" /> : <Login setIsauthorize={setIsauthorize} />} />
-        <Route path='/dashboard' element={Isauthorizte ? <Dashboard setIsauthorize={setIsauthorize}/> : <Navigate to="/login"/> } />
+        <Route path='/dashboard' element={Isauthorizte ? <Dashboard setIsauthorize={setIsauthorize} /> : <Navigate to="/login" />} />
+        <Route path="/admin-settings" element={Isauthorizte ? <AdminSetting setIsauthorize={setIsauthorize} /> : <Navigate to="/login" />} />
       </Routes>
     </>
   )
